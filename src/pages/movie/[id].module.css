@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.posterImg_container {
+  display: flex;
+  justify-content: center;
+
+  padding: 20px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+}
+
+.posterImg_container::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  content: "";
+}
+
+.posterImg_container > img {
+  z-index: 1;
+  max-height: 350px;
+  height: 100%;
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.subTitle {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.description {
+  background-color: rgba(42, 42, 42, 0.384);
+  padding: 15px;
+  border-radius: 5px;
+  line-height: 1.3;
+  white-space: pre-line;
+  border-radius: 5px;
+}

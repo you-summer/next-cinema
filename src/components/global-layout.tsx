@@ -9,7 +9,7 @@ export default function GlobalLayout({ children }: { children: ReactNode }) {
         <Link href={`/`}>NAEGA CINEMA</Link>
       </header>
       <main>{children}</main>
-      <footer>제작 @ summer</footer>
+      <footer className={style.footer}>제작 @ summer</footer>
     </div>
   );
 }
