@@ -4,12 +4,27 @@ import { ReactNode } from "react";
 import movies from "@/mock/dummy.json";
 import MovieItem from "@/components/movie-item";
 import style from "./index.module.css";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import fetchMovies from "@/lib/fetch-movies";
 
-export default function Page() {
-  const router = useRouter();
-  const { q } = router.query;
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const q = await context.query.q;
+  const movies = await fetchMovies(q as string);
+  return {
+    props: {
+      movies,
+    },
+  };
+};
 
-  console.log(router);
+export default function Page({
+  movies,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  //   const router = useRouter();
+  //   const { q } = router.query;
+
   return (
     <div className={style.container}>
       {movies.map((movie) => {
